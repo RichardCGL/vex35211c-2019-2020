@@ -194,41 +194,47 @@ void autonomous(){
     vex::task::sleep(200);
     rise.spin(vex::directionType::fwd, 10, vex::velocityUnits::pct);
     vex::task::sleep(100);
-    rise.spin(vex::directionType::rev, 10, vex::velocityUnits::pct);
+    rise.spin(vex::directionType::rev, 15, vex::velocityUnits::pct);
     vex::task::sleep(100);
     rise.stop(vex::brakeType::hold);
     push.stop(vex::brakeType::hold);
 
     vex::task::sleep(800);
 
-  base_train.driveFor(70, distanceUnits::in, 100, velocityUnits::pct);
+  base_train.driveFor(42, distanceUnits::in, 25, velocityUnits::pct);
   
   stopBot();
-  vex::task::sleep(400);
+  vex::task::sleep(250);
 
   intakeMotorL.stop(vex::brakeType::hold);
   intakeMotorR.stop(vex::brakeType::hold);
 
-  base_train.driveFor(-50, distanceUnits::in, 80, velocityUnits::pct);
+  base_train.driveFor(-20, distanceUnits::in, 40, velocityUnits::pct);
 
   stopBot();
   vex::task::sleep(400);
 
-  base_train.turnFor(-140, deg, 70, velocityUnits::pct);
+  base_train.turnFor(-135, deg, 30, velocityUnits::pct);
 
   stopBot();
   vex::task::sleep(400);
 
-  base_train.driveFor(30, distanceUnits::in, 60, velocityUnits::pct);
+  base_train.driveFor(15, distanceUnits::in, 30, velocityUnits::pct);
 
   stopBot();
   vex::task::sleep(400);
 
-  push.spin(vex::directionType::fwd, 90, vex::velocityUnits::pct);
-  vex::task::sleep(1000);
+  push.spin(vex::directionType::rev, 80, vex::velocityUnits::pct);
+  vex::task::sleep(2600);
   push.stop(vex::brakeType::hold);
+  vex::task::sleep(1200);
 
-  base_train.driveFor(-15, distanceUnits::in, 60, velocityUnits::pct);
+  base_train.driveFor(-10, distanceUnits::in, 30, velocityUnits::pct);
+
+  push.spin(vex::directionType::fwd, 80, vex::velocityUnits::pct);
+  base_train.driveFor(-15, distanceUnits::in, 30, velocityUnits::pct);
+  push.stop(vex::brakeType::hold);
+  vex::task::sleep(800);
 
 }
 
