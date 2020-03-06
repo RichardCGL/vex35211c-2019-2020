@@ -1,10 +1,10 @@
 #pragma once
+#include "vex.h"
 
-void pidMove(int, vex::motor);
-void motorGroupSpin(vex::motor_group [], vex::directionType, double,vex::velocityUnits);
-void motorGroupStop(vex::motor_group [], vex::brakeType);
+void pidMove(int, motor);
+void motorGroupSpin(motor_group [], directionType, double,velocityUnits);
+void motorGroupStop(motor_group [], brakeType);
 void goToTime(int, int);
 void stopBot(void);
 void statsMonitor(void);
-void asyncMoveDistance(vex::motor_group [], float, int *);
-
+//void asyncMoveDistance(motor_group [], float, int *, int);

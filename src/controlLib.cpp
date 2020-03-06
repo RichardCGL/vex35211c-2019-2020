@@ -1,6 +1,7 @@
 #include "vex.h"
+#include "robot-config.h"
 /*
-void pidMove(int goal, vex::motor theMotor){
+void pidMove(int goal, motor theMotor){
 
   int previousError = 0;
   int totalError = 0;
@@ -9,7 +10,7 @@ void pidMove(int goal, vex::motor theMotor){
   float kI = 0.043;
   float kD = 0.42;
 
-  int error = theMotor.position(vex::deg) - goal;
+  int error = theMotor.position(deg) - goal;
   totalError += error;
   int derivative = error - previousError;
 
@@ -19,28 +20,33 @@ void pidMove(int goal, vex::motor theMotor){
 //then 20 miliseconds will pass before the next loop causing this value
 //To become a value 20 miliseconds ago
   previousError = error; 
-  vex::task::sleep(20);
+  task::sleep(20);
 }
 */
-void motorGroupSpin(vex::motor_group motorGroup[], vex::directionType dirType,double velval, vex::velocityUnits velType){
+void motorGroupSpin(motor_group motorGroup[], directionType dirType,double velval, velocityUnits velType){
     motorGroup[0].spin(dirType,velval,velType);
     motorGroup[1].spin(dirType,velval,velType);
 }
 
-void motorGroupStop(vex::motor_group motorGroup[], vex::brakeType brkType){
+void motorGroupStop(motor_group motorGroup[], brakeType brkType){
     motorGroup[0].stop(brkType);
     motorGroup[1].stop(brkType);
 }
 
 void goToTime(int left, int right){     
-        wheelLF.spin(vex::directionType::fwd,left,vex::velocityUnits::pct);
-        wheelRF.spin(vex::directionType::fwd,right,vex::velocityUnits::pct);
-        wheelLB.spin(vex::directionType::fwd,left,vex::velocityUnits::pct);
-        wheelRB.spin(vex::directionType::fwd,right,vex::velocityUnits::pct);
+        wheelLF.spin(directionType::fwd,left,velocityUnits::pct);
+        wheelRF.spin(directionType::fwd,right,velocityUnits::pct);
+        wheelLB.spin(directionType::fwd,left,velocityUnits::pct);
+        wheelRB.spin(directionType::fwd,right,velocityUnits::pct);
+}
+/*
+void syncMoveDistance(motor_group[],int motor_count,  float distance){
+
 }
 
-void asyncMoveDistance(vex::motor_group motorGroup[], float distance, int * status){
-  
-
+void asyncMoveDistance(motor_group motorGroup[], int motor_count, float distance, int * status){
+  syncMoveDistance(motorGroup, motor_count, distance);
+  * status = 1; //1 means it is finished
 
 }
+*/

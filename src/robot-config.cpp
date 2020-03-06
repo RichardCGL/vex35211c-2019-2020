@@ -1,6 +1,5 @@
 #include "vex.h"
-
-using namespace vex;
+#include "robot-config.h"
 using signature = vision::signature;
 using code = vision::code;
 

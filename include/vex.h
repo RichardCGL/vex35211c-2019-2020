@@ -14,10 +14,7 @@
 #include <math.h>
 #include "v5.h"
 #include "v5_vcs.h"
-#include "constants.h"
-
-
-
+using namespace vex;
 
 
 
@@ -29,7 +26,7 @@
 static const double threshold = 2;
 static const double thresholdDeg = 10;
 static const int timeDelay = 50; //50 ms delay after each loop (20Hz) //vex::task::sleep(timeDelay);
-static const double MOTOR_MAX_TEMP = 60;
+static const double MOTOR_MAX_TEMP = 100; //this hack might work, initial is 60
 static const double CTR_TO_RPM = 1.5748;
 static const double CTR_TO_RPM_LESS = 1.4;
 
@@ -48,7 +45,6 @@ static const double CTR_TO_RPM_LESS = 1.4;
 #define repeat(iterations)                                                     \
   for (int iterator = 0; iterator < iterations; iterator++)
 
-#include "robot-config.h"
 
 #define waitUntil(condition)                                                   \
   do {                                                                         \
