@@ -6,8 +6,8 @@ const float WHEEL_DIAMETER = 4; //inches
 const float PI = 3.1415926;
 const float WHEEL_CIECUMFRENCE = PI * WHEEL_DIAMETER;
 const float WHEEL_CIECUMFRENCE_ADJ = WHEEL_CIECUMFRENCE + 0;//adjusted circumference based on testing
-const float TRACK_WIDTH = 11.25;//width between two side 
-const float WHEEL_BASE= 9;
+const float TRACK_WIDTH = 4.75;//width between two side 
+const float WHEEL_BASE= 5.625;
 
 competition Competition;
 const int WHEELF_COUNT = 2;
