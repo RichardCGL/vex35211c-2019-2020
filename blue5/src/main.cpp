@@ -236,7 +236,6 @@ int main() {
     // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
 
-
   pre_auton();
   Competition.autonomous( autonomous );
   Competition.drivercontrol( usercontrol ); 
