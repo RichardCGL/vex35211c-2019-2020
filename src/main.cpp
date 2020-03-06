@@ -184,135 +184,51 @@ void usercontrol() {
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 void autonomous(){
-    /*
-    //first row
-    push.spin(directionType::rev, 50, velocityUnits::pct);
-    intakeMotorL.spin(directionType::fwd, 80, velocityUnits::pct);
-    intakeMotorR.spin(directionType::fwd, 80, velocityUnits::pct);
-    task::sleep(200);
-    rise.spin(directionType::fwd, 10, velocityUnits::pct);
-    task::sleep(100);
-    rise.spin(directionType::rev, 10, velocityUnits::pct);
-    task::sleep(100);
-    rise.stop(brakeType::hold);
-    push.stop(brakeType::hold);
 
-    task::sleep(800);
-    
-    //second
-    wheelLF.setVelocity(23, pct);
-    wheelLB.setVelocity(23, pct);
-    wheelRF.setVelocity(23, pct);
-    wheelRB.setVelocity(23, pct);
+  //base_train.turnFor(double angle, rotationUnits units, double velocity, velocityUnits units_v);
+  //base_train.driveFor(double distance, distanceUnits units, double velocity, velocityUnits units_v);
 
-    wheelLF.rotateFor(1290, rotationUnits::deg, false);
-    wheelRF.rotateFor(1290, rotationUnits::deg, false);
-    wheelRB.rotateFor(1290, rotationUnits::deg, false);
-    wheelLB.rotateFor(1290, rotationUnits::deg, true);
+    push.spin(vex::directionType::rev, 50, vex::velocityUnits::pct);
+    intakeMotorL.spin(vex::directionType::fwd, 80, vex::velocityUnits::pct);
+    intakeMotorR.spin(vex::directionType::fwd, 80, vex::velocityUnits::pct);
+    vex::task::sleep(200);
+    rise.spin(vex::directionType::fwd, 10, vex::velocityUnits::pct);
+    vex::task::sleep(100);
+    rise.spin(vex::directionType::rev, 10, vex::velocityUnits::pct);
+    vex::task::sleep(100);
+    rise.stop(vex::brakeType::hold);
+    push.stop(vex::brakeType::hold);
 
-    stopBot();
-    task::sleep(400);
+    vex::task::sleep(800);
 
-    intakeMotorL.stop(brakeType::hold);
-    intakeMotorR.stop(brakeType::hold);
+  base_train.driveFor(70, distanceUnits::in, 100, velocityUnits::pct);
+  
+  stopBot();
+  vex::task::sleep(400);
 
-    //turn 2
-    // goToTime(-50, 50);
-    // task::sleep(800);
-    wheelLF.setVelocity(-75, pct);
-    wheelLB.setVelocity(-75, pct);
-    wheelRF.setVelocity(-75, pct);
-    wheelRB.setVelocity(-75, pct);
+  intakeMotorL.stop(vex::brakeType::hold);
+  intakeMotorR.stop(vex::brakeType::hold);
 
-    wheelLF.rotateFor(-930, rotationUnits::deg, false);
-    wheelRF.rotateFor(-930, rotationUnits::deg, false);
-    wheelRB.rotateFor(-930, rotationUnits::deg, false);
-    wheelLB.rotateFor(-930, rotationUnits::deg, true);
+  base_train.driveFor(-50, distanceUnits::in, 80, velocityUnits::pct);
 
-    stopBot();
-    task::sleep(100);
+  stopBot();
+  vex::task::sleep(400);
 
-    //go back
-    // goToTime(80, 80);
-    // task::sleep(1200);
-    // stopBot();
+  base_train.turnFor(-140, deg, 70, velocityUnits::pct);
 
-    wheelLF.setVelocity(-50, pct);
-    wheelLB.setVelocity(-50, pct);
-    wheelRF.setVelocity(50, pct);
-    wheelRB.setVelocity(50, pct);
+  stopBot();
+  vex::task::sleep(400);
 
-    wheelLF.rotateFor(-413, rotationUnits::deg, false);
-    wheelRF.rotateFor(413, rotationUnits::deg, false);
-    wheelRB.rotateFor(413, rotationUnits::deg, false);
-    wheelLB.rotateFor(-413, rotationUnits::deg, true);
+  base_train.driveFor(30, distanceUnits::in, 60, velocityUnits::pct);
 
-    stopBot();
-    task::sleep(300);
+  stopBot();
+  vex::task::sleep(400);
 
-    wheelLF.setVelocity(70, pct);
-    wheelLB.setVelocity(70, pct);
-    wheelRF.setVelocity(70, pct);
-    wheelRB.setVelocity(70, pct);
+  push.spin(vex::directionType::fwd, 90, vex::velocityUnits::pct);
+  vex::task::sleep(1000);
+  push.stop(vex::brakeType::hold);
 
-    wheelLF.rotateFor(550, rotationUnits::deg, false);
-    wheelRF.rotateFor(550, rotationUnits::deg, false);
-    wheelRB.rotateFor(550, rotationUnits::deg, false);
-    wheelLB.rotateFor(550, rotationUnits::deg, true);
-
-    //put
-    push.spin(directionType::fwd, 30, velocityUnits::pct);
-    task::sleep(400);
-    push.stop();
-
-    intakeMotorL.spin(directionType::rev, 70, velocityUnits::pct);
-    intakeMotorR.spin(directionType::rev, 70, velocityUnits::pct);
-    task::sleep(300);
-    intakeMotorL.stop(brakeType::coast);
-    intakeMotorR.stop(brakeType::coast);
-
-    push.spin(directionType::fwd, 40, velocityUnits::pct);
-    task::sleep(300);
-    push.stop();
-
-    intakeMotorL.spin(directionType::rev, 70, velocityUnits::pct);
-    intakeMotorR.spin(directionType::rev, 70, velocityUnits::pct);
-    task::sleep(300);
-    intakeMotorL.stop(brakeType::coast);
-    intakeMotorR.stop(brakeType::coast);
-
-    push.spin(directionType::fwd, 40, velocityUnits::pct);
-    task::sleep(300);
-    push.stop();
-
-    intakeMotorL.spin(directionType::rev, 70, velocityUnits::pct);
-    intakeMotorR.spin(directionType::rev, 70, velocityUnits::pct);
-    task::sleep(300);
-    intakeMotorL.stop(brakeType::coast);
-    intakeMotorR.stop(brakeType::coast);
-
-    push.spin(directionType::fwd, 40, velocityUnits::pct);
-    task::sleep(1000);
-    push.stop();
-    task::sleep(500);
-
-    goToTime(20, 20);
-
-    task::sleep(350);
-
-    intakeMotorL.spin(directionType::rev, 25, velocityUnits::pct);
-    intakeMotorR.spin(directionType::rev, 25, velocityUnits::pct);
-    goToTime(-50, -50);
-    task::sleep(200);
-
-    intakeMotorL.stop(brakeType::coast);
-    intakeMotorR.stop(brakeType::coast);
-    task::sleep(1000); */
-
-    //base_train.driveFor(24.0, distanceUnits::in);
-    base_train.turnFor(720, rotationUnits::deg);
-
-    stopBot();
+  base_train.driveFor(-15, distanceUnits::in, 60, velocityUnits::pct);
 
 }
 

@@ -39,6 +39,7 @@ void goToTime(int left, int right){
         wheelLB.spin(directionType::fwd,left,velocityUnits::pct);
         wheelRB.spin(directionType::fwd,right,velocityUnits::pct);
 }
+
 /*
 void syncMoveDistance(motor_group[],int motor_count,  float distance){
 
